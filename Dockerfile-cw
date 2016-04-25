@@ -1,0 +1,21 @@
+FROM node:latest
+
+# install an editor (so we can change code later)
+RUN apt-get update
+RUN apt-get install -y vim
+
+# install react
+#RUN npm install --save react@0.14
+#RUN npm install --save react-dom@0.14
+#RUN npm install --save webpack
+#RUN npm i babel-loader babel-preset-es2015 babel-preset-react -S
+#RUN npm i webpack-dev-server --save-dev
+#RUN npm install --save react-google-maps
+
+# clean up apt do it's not in our published docker container
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+#CMD ./entrypoint.sh
+
+EXPOSE 8080
+
